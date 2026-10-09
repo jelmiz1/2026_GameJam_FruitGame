@@ -20,6 +20,9 @@ public class PlayerController : MonoBehaviour
     public GameObject groundCheckEmpty;
     bool groundCheck;
     public FruitSpawner fruitSpawner;
+    public float health = 3f;
+    public float invulnerableTime = 1f;
+    float invulnerableTimer;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -32,6 +35,7 @@ public class PlayerController : MonoBehaviour
     {
         Movement();
         FaceMoveDirection();
+        invulnerableTimer -= Time.deltaTime;
     }
 
     public void OnMove(InputValue inputValue)
@@ -92,5 +96,36 @@ public class PlayerController : MonoBehaviour
             transform.rotation = Quaternion.Euler(0f, 180f, 0f);  // face -Z
                                                                   // no input: keep facing the last direction
     }
+    public void TakeDamage()
+    {
+        if (invulnerableTimer > 0f) return;
+
+        health -= 1;
+        invulnerableTimer = invulnerableTime;
+        Death();
+    }
+    public void Death()
+    {
+        if(health == 0)
+        {
+            Destroy(gameObject);
+            //Tähän logiikka game over screeniin
+        }
+    }
+    private void OnControllerColliderHit(ControllerColliderHit hit)
+    {
+        if(hit.collider.CompareTag("Enemy"))
+        {
+            TakeDamage();
+            Debug.Log("Hit: " + hit.collider.name + " tag: " + hit.collider.tag);
+        }
+        
+    }
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.CompareTag("Enemy"))
+            TakeDamage();
+    }
+
 
 }
