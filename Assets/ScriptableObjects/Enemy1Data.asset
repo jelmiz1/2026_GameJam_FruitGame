@@ -16,5 +16,6 @@ MonoBehaviour:
   damage: 1
   health: 3
   moveSpeed: 5
-  hurt: {fileID: 0}
+  movementDistance: 5
+  hurt: {fileID: 8300000, guid: afe13e74f53acb140b26afd6576f4ab6, type: 3}
   death: {fileID: 0}

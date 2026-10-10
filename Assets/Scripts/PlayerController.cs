@@ -18,13 +18,18 @@ public class PlayerController : MonoBehaviour
     private float gravity = -9.81f;
     bool groundCheck;
     public FruitSpawner fruitSpawner;
-    public int health = 3;
+    private int health;
+    public int maxHealth = 3;
     public float invulnerableTime = 1f;
     float invulnerableTimer;
+    public AudioClip hurt;
+    public AudioClip death;
+    public AudioSource audioSource;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        UpdateHealthUi();
+        GameManager.Instance.SetHealthUI(maxHealth);
+        health = maxHealth;
     }
 
     // Update is called once per frame
@@ -95,6 +100,7 @@ public class PlayerController : MonoBehaviour
         health -= 1;
         UpdateHealthUi();
         invulnerableTimer = invulnerableTime;
+        audioSource.PlayOneShot(hurt);
         Death();
     }
     public void Death()
@@ -119,6 +125,19 @@ public class PlayerController : MonoBehaviour
             Debug.Log("Hit: " + hit.collider.name + " tag: " + hit.collider.tag);
         }
         
+        
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("HP"))
+        {
+            if (health < maxHealth)
+            {
+                health += 1;
+                UpdateHealthUi();
+                Destroy(other.gameObject);
+            }
+        }
     }
     private void OnTriggerStay(Collider other)
     {

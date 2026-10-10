@@ -1,10 +1,8 @@
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 public class FruitSpawner : MonoBehaviour
 {
     public FruitWeaponData data;
-    public Transform character;   // the player, used for facing direction
 
     [Header("Aiming")]
     public float startAngle = 20f;   // degrees above horizontal
@@ -52,6 +50,7 @@ public class FruitSpawner : MonoBehaviour
 
         if (fruit.TryGetComponent(out Fruit projectile))
             projectile.Init(data);
+
 
         if (fruit.TryGetComponent(out Rigidbody rb))
             rb.linearVelocity = dir * data.projectileSpeed;
