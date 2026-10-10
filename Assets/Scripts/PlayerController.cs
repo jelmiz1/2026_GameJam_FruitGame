@@ -20,14 +20,13 @@ public class PlayerController : MonoBehaviour
     public GameObject groundCheckEmpty;
     bool groundCheck;
     public FruitSpawner fruitSpawner;
-    public float health = 3f;
+    public int health = 3;
     public float invulnerableTime = 1f;
     float invulnerableTimer;
-
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-       
+        UpdateHealthUi();
     }
 
     // Update is called once per frame
@@ -41,7 +40,7 @@ public class PlayerController : MonoBehaviour
     public void OnMove(InputValue inputValue)
     {
         moveAmount = inputValue.Get<Vector2>();
-        moveInput = new Vector3(0f, 0f, moveAmount.y);
+        moveInput = new Vector3(moveAmount.x, 0f, 0f);
 
     }
     public void OnJump()
@@ -66,11 +65,11 @@ public class PlayerController : MonoBehaviour
         }
 
         // Read input
-        Vector3 move = new Vector3(0f, 0, moveAmount.y);
+        Vector3 move = new Vector3(moveInput.x, 0f, 0f);
         move = Vector3.ClampMagnitude(move, 1f);
 
         if (move != Vector3.zero)
-            transform.forward = move;
+            transform.right = move;
 
 
 
@@ -91,9 +90,9 @@ public class PlayerController : MonoBehaviour
         float move = moveInput.x;   // the input axis you use for Z movement
 
         if (move > 0.01f)
-            transform.rotation = Quaternion.Euler(0f, 0f, 0f);    // face +Z
+            transform.rotation = Quaternion.Euler(0f, 90f, 0f);    // face +Z
         else if (move < -0.01f)
-            transform.rotation = Quaternion.Euler(0f, 180f, 0f);  // face -Z
+            transform.rotation = Quaternion.Euler(0f, 270f, 0f);  // face -Z
                                                                   // no input: keep facing the last direction
     }
     public void TakeDamage()
@@ -101,6 +100,7 @@ public class PlayerController : MonoBehaviour
         if (invulnerableTimer > 0f) return;
 
         health -= 1;
+        UpdateHealthUi();
         invulnerableTimer = invulnerableTime;
         Death();
     }
@@ -108,7 +108,13 @@ public class PlayerController : MonoBehaviour
     {
         if(health == 0)
         {
-            Destroy(gameObject);
+            if(GameManager.Instance != null)
+            {
+                GameManager.Instance.GetComponent<GameManager>().GameOver();
+                //Destroy(gameObject);
+            }
+            
+            
             //Tähän logiikka game over screeniin
         }
     }
@@ -126,6 +132,17 @@ public class PlayerController : MonoBehaviour
         if (other.CompareTag("Enemy"))
             TakeDamage();
     }
-
+    public void OnPause()
+    {
+        GameManager.Instance.GetComponent<GameManager>().Pause();
+    }
+    public void UpdateHealthUi()
+    {
+        if(GameManager.Instance != null) 
+        {
+            GameManager.Instance.SetHealthUI(health);
+        }
+        
+    }
 
 }
