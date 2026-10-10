@@ -14,20 +14,22 @@ public class PlayerController : MonoBehaviour
     public PlayerInput playerInput;
     private Vector3 moveInput;
     private Vector3 playerVelocity;
-    public Rigidbody rb;
     public float jumpHeight = 2f;
     private float gravity = -9.81f;
-    public GameObject groundCheckEmpty;
     bool groundCheck;
     public FruitSpawner fruitSpawner;
-    public float health = 3f;
+    private int health;
+    public int maxHealth = 3;
     public float invulnerableTime = 1f;
     float invulnerableTimer;
-
+    public AudioClip hurt;
+    public AudioClip death;
+    public AudioSource audioSource;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-       
+        GameManager.Instance.SetHealthUI(maxHealth);
+        health = maxHealth;
     }
 
     // Update is called once per frame
@@ -35,13 +37,14 @@ public class PlayerController : MonoBehaviour
     {
         Movement();
         FaceMoveDirection();
+        fruitSpawner.AdjustAim(moveAmount.y);
         invulnerableTimer -= Time.deltaTime;
     }
 
     public void OnMove(InputValue inputValue)
     {
         moveAmount = inputValue.Get<Vector2>();
-        moveInput = new Vector3(0f, 0f, moveAmount.y);
+        moveInput = new Vector3(moveAmount.x, 0f, 0f);
 
     }
     public void OnJump()
@@ -66,14 +69,8 @@ public class PlayerController : MonoBehaviour
         }
 
         // Read input
-        Vector3 move = new Vector3(0f, 0, moveAmount.y);
+        Vector3 move = new Vector3(moveInput.x, 0f, 0f);
         move = Vector3.ClampMagnitude(move, 1f);
-
-        if (move != Vector3.zero)
-            transform.forward = move;
-
-
-
         // Apply gravity
         playerVelocity.y += gravity * Time.deltaTime;
 
@@ -91,9 +88,9 @@ public class PlayerController : MonoBehaviour
         float move = moveInput.x;   // the input axis you use for Z movement
 
         if (move > 0.01f)
-            transform.rotation = Quaternion.Euler(0f, 0f, 0f);    // face +Z
+            transform.rotation = Quaternion.Euler(0f, 90f, 0f);    // face +Z
         else if (move < -0.01f)
-            transform.rotation = Quaternion.Euler(0f, 180f, 0f);  // face -Z
+            transform.rotation = Quaternion.Euler(0f, 270f, 0f);  // face -Z
                                                                   // no input: keep facing the last direction
     }
     public void TakeDamage()
@@ -101,14 +98,22 @@ public class PlayerController : MonoBehaviour
         if (invulnerableTimer > 0f) return;
 
         health -= 1;
+        UpdateHealthUi();
         invulnerableTimer = invulnerableTime;
+        audioSource.PlayOneShot(hurt);
         Death();
     }
     public void Death()
     {
-        if(health == 0)
+        if(health <= 0)
         {
-            Destroy(gameObject);
+            if(GameManager.Instance != null)
+            {
+                GameManager.Instance.GameOver();
+                //Destroy(gameObject);
+            }
+            
+            
             //Tähän logiikka game over screeniin
         }
     }
@@ -120,12 +125,36 @@ public class PlayerController : MonoBehaviour
             Debug.Log("Hit: " + hit.collider.name + " tag: " + hit.collider.tag);
         }
         
+        
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("HP"))
+        {
+            if (health < maxHealth)
+            {
+                health += 1;
+                UpdateHealthUi();
+                Destroy(other.gameObject);
+            }
+        }
     }
     private void OnTriggerStay(Collider other)
     {
         if (other.CompareTag("Enemy"))
             TakeDamage();
     }
-
+    public void OnPause()
+    {
+        GameManager.Instance.Pause();
+    }
+    public void UpdateHealthUi()
+    {
+        if(GameManager.Instance != null) 
+        {
+            GameManager.Instance.SetHealthUI(health);
+        }
+        
+    }
 
 }
