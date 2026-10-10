@@ -47,6 +47,7 @@ public class Enemy : MonoBehaviour
     public void TakeDamage(float damage)
     {
         health -= damage;
+        gameObject.GetComponent<AudioSource>().PlayOneShot(data.hurt);
         if(health <= 0f)
         {
             Death();
@@ -55,14 +56,6 @@ public class Enemy : MonoBehaviour
     public void Death()
     {
         Destroy(this.gameObject);
-    }
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.TryGetComponent(out Fruit fruit))
-        {
-            TakeDamage(fruit.Data.damage);
-            Destroy(other.gameObject);
-        }
     }
 
 }

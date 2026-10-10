@@ -246,6 +246,11 @@ MonoBehaviour:
   m_ShadowLayerMask: 1
   m_RenderingLayers: 1
   m_ShadowRenderingLayers: 1
+--- !u!1 &607076906 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2112674431051733774, guid: b7becf84f2f0f974aa351102f0377c76, type: 3}
+  m_PrefabInstance: {fileID: 5451961997083341332}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1867677223
 GameObject:
   m_ObjectHideFlags: 0
@@ -346,6 +351,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2112674431051733774, guid: b7becf84f2f0f974aa351102f0377c76, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4897878895158849517, guid: b7becf84f2f0f974aa351102f0377c76, type: 3}
+      propertyPath: levelCompletePanel
+      value: 
+      objectReference: {fileID: 607076906}
     - target: {fileID: 6998220745910806229, guid: b7becf84f2f0f974aa351102f0377c76, type: 3}
       propertyPath: m_LocalPosition.x
       value: 193.5928
