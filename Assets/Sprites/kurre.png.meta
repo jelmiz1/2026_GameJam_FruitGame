@@ -100,10 +100,10 @@ TextureImporter:
       name: kurre_0
       rect:
         serializedVersion: 2
-        x: 146
-        y: 1137
-        width: 466
-        height: 303
+        x: 118
+        y: 841
+        width: 346
+        height: 238
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -122,10 +122,10 @@ TextureImporter:
       name: kurre_1
       rect:
         serializedVersion: 2
-        x: 612
-        y: 1137
-        width: 466
-        height: 303
+        x: 464
+        y: 841
+        width: 346
+        height: 238
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -144,10 +144,10 @@ TextureImporter:
       name: kurre_2
       rect:
         serializedVersion: 2
-        x: 1078
-        y: 1120
-        width: 466
-        height: 303
+        x: 810
+        y: 841
+        width: 346
+        height: 238
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -166,10 +166,10 @@ TextureImporter:
       name: kurre_3
       rect:
         serializedVersion: 2
-        x: 1544
-        y: 1137
-        width: 466
-        height: 303
+        x: 1156
+        y: 841
+        width: 346
+        height: 238
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -188,10 +188,10 @@ TextureImporter:
       name: kurre_4
       rect:
         serializedVersion: 2
-        x: 146
-        y: 834
-        width: 466
-        height: 303
+        x: 118
+        y: 603
+        width: 346
+        height: 238
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -210,10 +210,10 @@ TextureImporter:
       name: kurre_5
       rect:
         serializedVersion: 2
-        x: 612
-        y: 824
-        width: 466
-        height: 303
+        x: 464
+        y: 603
+        width: 346
+        height: 238
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -232,10 +232,10 @@ TextureImporter:
       name: kurre_6
       rect:
         serializedVersion: 2
-        x: 1078
-        y: 824
-        width: 466
-        height: 303
+        x: 810
+        y: 603
+        width: 346
+        height: 238
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -246,6 +246,28 @@ TextureImporter:
       bones: []
       spriteID: b911d80f2c26f3a41a0c1057d2a32a08
       internalID: 1144674005
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kurre_7
+      rect:
+        serializedVersion: 2
+        x: 1156
+        y: 603
+        width: 346
+        height: 238
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7d193b786444938478d7619aad5d8ffd
+      internalID: 1746904255
       vertices: []
       indices: 
       edges: []
@@ -264,7 +286,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries:
       - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":466.0,"y":303.0},"gridSpriteOffset":{"x":146.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":346.0,"y":238.0},"gridSpriteOffset":{"x":118.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
       kurre_0: -589163554
       kurre_1: 1210586592
