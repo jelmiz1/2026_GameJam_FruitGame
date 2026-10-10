@@ -6,6 +6,7 @@ TagManager:
   tags:
   - isGround
   - Enemy
+  - Fruit
   layers:
   - Default
   - TransparentFX

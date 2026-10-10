@@ -15,6 +15,6 @@ MonoBehaviour:
   displayName: TestEnemy
   damage: 1
   health: 3
-  moveSpeed: 15
+  moveSpeed: 5
   hurt: {fileID: 0}
   death: {fileID: 0}

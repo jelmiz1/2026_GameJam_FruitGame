@@ -14,10 +14,8 @@ public class PlayerController : MonoBehaviour
     public PlayerInput playerInput;
     private Vector3 moveInput;
     private Vector3 playerVelocity;
-    public Rigidbody rb;
     public float jumpHeight = 2f;
     private float gravity = -9.81f;
-    public GameObject groundCheckEmpty;
     bool groundCheck;
     public FruitSpawner fruitSpawner;
     public int health = 3;
@@ -34,6 +32,7 @@ public class PlayerController : MonoBehaviour
     {
         Movement();
         FaceMoveDirection();
+        fruitSpawner.AdjustAim(moveAmount.y);
         invulnerableTimer -= Time.deltaTime;
     }
 
@@ -67,12 +66,6 @@ public class PlayerController : MonoBehaviour
         // Read input
         Vector3 move = new Vector3(moveInput.x, 0f, 0f);
         move = Vector3.ClampMagnitude(move, 1f);
-
-        if (move != Vector3.zero)
-            transform.right = move;
-
-
-
         // Apply gravity
         playerVelocity.y += gravity * Time.deltaTime;
 
@@ -106,11 +99,11 @@ public class PlayerController : MonoBehaviour
     }
     public void Death()
     {
-        if(health == 0)
+        if(health <= 0)
         {
             if(GameManager.Instance != null)
             {
-                GameManager.Instance.GetComponent<GameManager>().GameOver();
+                GameManager.Instance.GameOver();
                 //Destroy(gameObject);
             }
             
@@ -134,7 +127,7 @@ public class PlayerController : MonoBehaviour
     }
     public void OnPause()
     {
-        GameManager.Instance.GetComponent<GameManager>().Pause();
+        GameManager.Instance.Pause();
     }
     public void UpdateHealthUi()
     {

@@ -15,7 +15,8 @@ MonoBehaviour:
   displayName: 
   icon: {fileID: 0}
   projectilePrefab: {fileID: 2137271562794776751, guid: 65ea1dd17db0eb14ea8e33531f467354, type: 3}
-  damage: 10
+  damage: 1
   fireRate: 2
   projectileSpeed: 15
+  lifetime: 2
   throwSound: {fileID: 0}

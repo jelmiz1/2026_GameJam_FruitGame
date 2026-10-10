@@ -9,5 +9,6 @@ public class FruitWeaponData : ScriptableObject
     public float damage = 10f;
     public float fireRate = 2f;
     public float projectileSpeed = 15f;
+    public float lifetime = 5f;
     public AudioClip throwSound;
 }
