@@ -7,12 +7,12 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public TMP_Text healthText;
-    Scene currentScene;
     public static GameManager Instance { get; private set; }
     public GameObject mainMenuPanel;
     public GameObject hudPanel;
     public GameObject pausePanel;
     public GameObject gameOverPanel;
+    public GameObject levelCompletePanel;
     bool isPaused;
     void Awake()
     {
@@ -77,6 +77,7 @@ public class GameManager : MonoBehaviour
         hudPanel.SetActive(panel == hudPanel);
         pausePanel.SetActive(panel == pausePanel);
         gameOverPanel.SetActive(panel == gameOverPanel);
+        levelCompletePanel.SetActive(panel == levelCompletePanel);
     }
 
     public void Pause()
@@ -91,7 +92,11 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 0f;
         ShowOnly(gameOverPanel);
     }
-
+    public void LevelComplete()
+    {
+        Time.timeScale = 0f;
+        ShowOnly(levelCompletePanel);
+    }
 
 public void SetHealthUI(int health)
 {

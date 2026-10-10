@@ -20,3 +20,7 @@ MonoBehaviour:
   projectileSpeed: 15
   lifetime: 2
   throwSound: {fileID: 0}
+  isExplosion: 1
+  explosion: {fileID: 1711265090285321622, guid: 0e8c40a5df6a87947a2a9d636531d419, type: 3}
+  explosionSound: {fileID: 0}
+  explosionRadius: 3
