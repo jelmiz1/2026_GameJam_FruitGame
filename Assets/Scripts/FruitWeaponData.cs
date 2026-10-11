@@ -15,4 +15,5 @@ public class FruitWeaponData : ScriptableObject
     public GameObject explosion;
     public AudioClip explosionSound;
     public float explosionRadius = 3f;
+    public bool isRolling;
 }
