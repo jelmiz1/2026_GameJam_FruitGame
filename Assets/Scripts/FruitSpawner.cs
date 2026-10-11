@@ -12,7 +12,7 @@ public class FruitSpawner : MonoBehaviour
     public float maxChargeTime = 1.5f;     // seconds to full power
     public float minChargePercent = 0.3f;  // a quick tap = 30% of projectileSpeed
 
-    bool isCharging;
+    public bool isCharging;
     float chargeStartTime;
     float aimAngle;
     float cooldown;
