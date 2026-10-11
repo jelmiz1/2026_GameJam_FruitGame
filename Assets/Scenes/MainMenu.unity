@@ -246,11 +246,33 @@ MonoBehaviour:
   m_ShadowLayerMask: 1
   m_RenderingLayers: 1
   m_ShadowRenderingLayers: 1
---- !u!1 &607076906 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2112674431051733774, guid: b7becf84f2f0f974aa351102f0377c76, type: 3}
+--- !u!114 &619482395 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8881350813014814328, guid: b7becf84f2f0f974aa351102f0377c76, type: 3}
   m_PrefabInstance: {fileID: 5451961997083341332}
   m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
+--- !u!1 &1071506256 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6060492378162520113, guid: b7becf84f2f0f974aa351102f0377c76, type: 3}
+  m_PrefabInstance: {fileID: 5451961997083341332}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1348727962 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4947044448088073877, guid: b7becf84f2f0f974aa351102f0377c76, type: 3}
+  m_PrefabInstance: {fileID: 5451961997083341332}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
 --- !u!1 &1867677223
 GameObject:
   m_ObjectHideFlags: 0
@@ -351,14 +373,34 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2112674431051733774, guid: b7becf84f2f0f974aa351102f0377c76, type: 3}
+    - target: {fileID: 3634719049572505083, guid: b7becf84f2f0f974aa351102f0377c76, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4897878895158849517, guid: b7becf84f2f0f974aa351102f0377c76, type: 3}
+      propertyPath: fruitIcon
+      value: 
+      objectReference: {fileID: 1071506256}
+    - target: {fileID: 4897878895158849517, guid: b7becf84f2f0f974aa351102f0377c76, type: 3}
+      propertyPath: fruitNameText
+      value: 
+      objectReference: {fileID: 1348727962}
+    - target: {fileID: 4897878895158849517, guid: b7becf84f2f0f974aa351102f0377c76, type: 3}
+      propertyPath: fruitCurrentAmount
+      value: 
+      objectReference: {fileID: 619482395}
+    - target: {fileID: 4947044448088073877, guid: b7becf84f2f0f974aa351102f0377c76, type: 3}
+      propertyPath: m_text
+      value: Empty
+      objectReference: {fileID: 0}
+    - target: {fileID: 6060492378162520113, guid: b7becf84f2f0f974aa351102f0377c76, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4897878895158849517, guid: b7becf84f2f0f974aa351102f0377c76, type: 3}
-      propertyPath: levelCompletePanel
-      value: 
-      objectReference: {fileID: 607076906}
+    - target: {fileID: 6692368134895661286, guid: b7becf84f2f0f974aa351102f0377c76, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6998220745910806229, guid: b7becf84f2f0f974aa351102f0377c76, type: 3}
       propertyPath: m_LocalPosition.x
       value: 193.5928
@@ -398,6 +440,10 @@ PrefabInstance:
     - target: {fileID: 6998220745910806229, guid: b7becf84f2f0f974aa351102f0377c76, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8881350813014814328, guid: b7becf84f2f0f974aa351102f0377c76, type: 3}
+      propertyPath: m_text
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 9012189087089700618, guid: b7becf84f2f0f974aa351102f0377c76, type: 3}
       propertyPath: m_Name
