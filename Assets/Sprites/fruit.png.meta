@@ -272,6 +272,28 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: jabillo
+      rect:
+        serializedVersion: 2
+        x: 798
+        y: 120
+        width: 102
+        height: 83
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a3caa01d96c93144d98dad13c3e0757c
+      internalID: -2031858714
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
@@ -296,6 +318,7 @@ TextureImporter:
       fruit_5: -1898614118
       fruit_6: 53222739
       fruit_7: -756254828
+      jabillo: -2031858714
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
