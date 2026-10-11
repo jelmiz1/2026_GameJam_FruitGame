@@ -1,12 +1,16 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 
 
 public class GameManager : MonoBehaviour
 {
     public TMP_Text healthText;
+    public TMP_Text fruitNameText;
+    public TMP_Text fruitCurrentAmount;
+    public GameObject fruitIcon;
     public static GameManager Instance { get; private set; }
     public GameObject mainMenuPanel;
     public GameObject hudPanel;
@@ -98,10 +102,26 @@ public class GameManager : MonoBehaviour
         ShowOnly(levelCompletePanel);
     }
 
-public void SetHealthUI(int health)
-{
+    public void SetHealthUI(int health)
+    {
 
-    healthText.text = "Health: " + health;
-}
+        healthText.text = "HP: " + health;
+    }
+    public void SetFruitDataUI(FruitWeaponData data, int count)
+    {
+
+        fruitNameText.text = data.displayName;
+
+        fruitCurrentAmount.text = count.ToString();
+        if(data.icon != null)
+        {
+            fruitIcon.SetActive(true);
+            fruitIcon.GetComponent<Image>().sprite = data.icon;
+        }
+        else
+        {
+            fruitIcon.SetActive(false);
+        }
+    }
 
 }

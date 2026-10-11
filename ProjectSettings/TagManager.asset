@@ -8,6 +8,8 @@ TagManager:
   - Enemy
   - Fruit
   - HP
+  - MagicBush
+  - Bush
   layers:
   - Default
   - TransparentFX
