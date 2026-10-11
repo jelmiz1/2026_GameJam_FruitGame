@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     public TMP_Text fruitNameText;
     public TMP_Text fruitCurrentAmount;
     public GameObject fruitIcon;
+    public GameObject noniIcon;
     public static GameManager Instance { get; private set; }
     public GameObject mainMenuPanel;
     public GameObject hudPanel;
@@ -18,6 +19,8 @@ public class GameManager : MonoBehaviour
     public GameObject gameOverPanel;
     public GameObject levelCompletePanel;
     bool isPaused;
+    [Header("Audio")]
+    public AudioSource ambience;
     void Awake()
     {
         if(Instance != null && Instance != this)
@@ -57,6 +60,7 @@ public class GameManager : MonoBehaviour
     }
     public void MainMenu()
     {
+        ambience.Stop();
         SceneManager.LoadScene("MainMenu");
     }
 
@@ -72,7 +76,11 @@ public class GameManager : MonoBehaviour
         if (scene.name == "MainMenu")
             ShowOnly(mainMenuPanel);
         else
+        {
+            ambience.Play();
             ShowOnly(hudPanel);
+        }
+            
     }
 
     void ShowOnly(GameObject panel)
@@ -86,18 +94,25 @@ public class GameManager : MonoBehaviour
 
     public void Pause()
     {
+        ambience.Pause();
         isPaused = !isPaused;
         Time.timeScale = isPaused ? 0f : 1f;
+        if (isPaused)
+            ambience.Pause();
+        else
+            ambience.UnPause();
         ShowOnly(isPaused ? pausePanel : hudPanel);
     }
 
     public void GameOver()
     {
+        ambience.Stop();
         Time.timeScale = 0f;
         ShowOnly(gameOverPanel);
     }
     public void LevelComplete()
     {
+        ambience.Stop();
         Time.timeScale = 0f;
         ShowOnly(levelCompletePanel);
     }

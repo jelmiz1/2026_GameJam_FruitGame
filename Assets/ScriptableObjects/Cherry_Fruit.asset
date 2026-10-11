@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Cherry_Fruit
   m_EditorClassIdentifier: Assembly-CSharp::FruitWeaponData
   displayName: Cherry
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: e631043a629879749879419a3bc96fc9, type: 3}
   projectilePrefab: {fileID: 7119668892884493640, guid: b3752125aa210d24cb304a5c97789a8e, type: 3}
   damage: 1
   fireRate: 2
@@ -25,3 +25,4 @@ MonoBehaviour:
   explosionSound: {fileID: 0}
   explosionRadius: 3
   isRolling: 1
+  healAmount: 0
