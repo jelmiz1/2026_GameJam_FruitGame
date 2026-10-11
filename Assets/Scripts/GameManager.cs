@@ -13,11 +13,13 @@ public class GameManager : MonoBehaviour
     public GameObject fruitIcon;
     public GameObject noniIcon;
     public static GameManager Instance { get; private set; }
+    [Header("Panels")]
     public GameObject mainMenuPanel;
     public GameObject hudPanel;
     public GameObject pausePanel;
     public GameObject gameOverPanel;
     public GameObject levelCompletePanel;
+    public GameObject gameCompletePanel;
     bool isPaused;
     [Header("Audio")]
     public AudioSource ambience;
@@ -90,6 +92,7 @@ public class GameManager : MonoBehaviour
         pausePanel.SetActive(panel == pausePanel);
         gameOverPanel.SetActive(panel == gameOverPanel);
         levelCompletePanel.SetActive(panel == levelCompletePanel);
+        gameCompletePanel.SetActive(panel == gameCompletePanel);
     }
 
     public void Pause()
@@ -115,6 +118,12 @@ public class GameManager : MonoBehaviour
         ambience.Stop();
         Time.timeScale = 0f;
         ShowOnly(levelCompletePanel);
+    }
+    public void GameComplete()
+    {
+        ambience.Stop();
+        Time.timeScale = 0f;
+        ShowOnly(gameCompletePanel);
     }
 
     public void SetHealthUI(int health)
