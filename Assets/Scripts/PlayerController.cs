@@ -1,13 +1,11 @@
-using System;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.InputSystem.XR;
-using static UnityEngine.Rendering.DebugUI;
+
+
 
 public class PlayerController : MonoBehaviour
 {
-  
+    public FruitInventory inventory;
     public float movementSpeed = 10;
     private Vector2 moveAmount;
     public CharacterController characterController;
@@ -28,8 +26,10 @@ public class PlayerController : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        GameManager.Instance.SetHealthUI(maxHealth);
         health = maxHealth;
+        UpdateHealthUi();
+        UpdateFruitUI();
+       
     }
 
     // Update is called once per frame
@@ -81,7 +81,9 @@ public class PlayerController : MonoBehaviour
     public void OnAttack(InputValue inputValue)
     {
         if (inputValue.isPressed)
-            fruitSpawner.Fire();
+            fruitSpawner.StartCharge();
+        else
+            fruitSpawner.ReleaseCharge();
     }
     void FaceMoveDirection()
     {
@@ -148,6 +150,10 @@ public class PlayerController : MonoBehaviour
     {
         GameManager.Instance.Pause();
     }
+    public void OnSwitchWeapon()
+    {
+        inventory.Next();
+    }
     public void UpdateHealthUi()
     {
         if(GameManager.Instance != null) 
@@ -156,5 +162,27 @@ public class PlayerController : MonoBehaviour
         }
         
     }
+    public void UpdateFruitUI()
+    {
+        if(GameManager.Instance != null)
+        {
+            FruitInventory.FruitSlot slot = inventory.GetCurrent();
+            if (slot == null)
+            {
+                return;
+            }
+            GameManager.Instance.SetFruitDataUI(slot.data, slot.amount);
+        }
+    }
+    void OnEnable()
+    {
+        inventory.OnChanged += UpdateFruitUI;
+    }
+
+    void OnDisable()
+    {
+        inventory.OnChanged -= UpdateFruitUI;
+    }
+
 
 }
