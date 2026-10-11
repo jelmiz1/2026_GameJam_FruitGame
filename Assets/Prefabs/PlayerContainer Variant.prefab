@@ -262,8 +262,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerAnimationState
   controller: {fileID: 4820889631687839665}
-  fruitSpawner: {fileID: 0}
-  transitionDelay: 0
+  fruitSpawner: {fileID: 4903691335938050985}
+  transitionDelay: 0.25
   delayCounter: 0
 --- !u!1001 &1640644472982112384
 PrefabInstance:
@@ -285,6 +285,10 @@ PrefabInstance:
       propertyPath: rb
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 799894442041730667, guid: 6eabd9c54dbd8cc4eb40b683924292b3, type: 3}
+      propertyPath: inventory
+      value: 
+      objectReference: {fileID: 5327782817581937529}
     - target: {fileID: 3655616526914534176, guid: 6eabd9c54dbd8cc4eb40b683924292b3, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0.48
@@ -348,12 +352,19 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 4808970024958238308, guid: 6eabd9c54dbd8cc4eb40b683924292b3, type: 3}
     - {fileID: 2909663342217035636, guid: 6eabd9c54dbd8cc4eb40b683924292b3, type: 3}
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 5961540545399440135, guid: 6eabd9c54dbd8cc4eb40b683924292b3, type: 3}
+    - {fileID: 6926134151725838805, guid: 6eabd9c54dbd8cc4eb40b683924292b3, type: 3}
+    - {fileID: 2170757925594994904, guid: 6eabd9c54dbd8cc4eb40b683924292b3, type: 3}
+    - {fileID: 4300142613805179079, guid: 6eabd9c54dbd8cc4eb40b683924292b3, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 3829971308666628614, guid: 6eabd9c54dbd8cc4eb40b683924292b3, type: 3}
       insertIndex: -1
       addedObject: {fileID: 8893988505612202492}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7019250746433945207, guid: 6eabd9c54dbd8cc4eb40b683924292b3, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5327782817581937529}
   m_SourcePrefab: {fileID: 100100000, guid: 6eabd9c54dbd8cc4eb40b683924292b3, type: 3}
 --- !u!4 &2585760975987516038 stripped
 Transform:
@@ -376,3 +387,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec2493f9b05dc674b98a2d0c8e3af4fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FruitSpawner
+--- !u!1 &8623793132990478071 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7019250746433945207, guid: 6eabd9c54dbd8cc4eb40b683924292b3, type: 3}
+  m_PrefabInstance: {fileID: 1640644472982112384}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &5327782817581937529
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8623793132990478071}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7c9182fa586dc241b81114bdd05c9f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FruitInventory
+  slots: []
+  currentIndex: 0

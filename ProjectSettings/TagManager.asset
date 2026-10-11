@@ -10,6 +10,8 @@ TagManager:
   - HP
   - MagicBush
   - Bush
+  - EndLevel
+  - EndGame
   layers:
   - Default
   - TransparentFX

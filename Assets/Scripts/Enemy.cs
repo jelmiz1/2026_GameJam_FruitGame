@@ -3,8 +3,9 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     public EnemyObjects data;
-    private float currentMovementZone = 0f;
-    private float movementDistance;
+    [SerializeField] private float currentMovementZone = 0f;
+
+    [SerializeField] private float movementDistance;
     private float health;
     private float moveSpeed;
     private bool moveForward;
@@ -14,6 +15,7 @@ public class Enemy : MonoBehaviour
         health = data.health;
         moveSpeed = data.moveSpeed;
         movementDistance = data.movementDistance;
+        
 
     }
 
@@ -31,15 +33,18 @@ public class Enemy : MonoBehaviour
             if(currentMovementZone > movementDistance)
             {
                 moveForward = false;
+                UpdateFacing();
             }
         }
         else if(currentMovementZone >= 0 && !moveForward )
         {
             currentMovementZone -= 1 * Time.deltaTime;
-            gameObject.transform.Translate(new Vector3(-1f,0f,0f) * moveSpeed *Time.deltaTime);
+            gameObject.transform.Translate(new Vector3(1f,0f,0f) * moveSpeed *Time.deltaTime);
+            
             if(currentMovementZone < 0)
             {
                 moveForward = true;
+                UpdateFacing();
             }
         }
         
@@ -56,6 +61,10 @@ public class Enemy : MonoBehaviour
     public void Death()
     {
         Destroy(this.gameObject);
+    }
+    private void UpdateFacing()
+    {
+        transform.rotation = Quaternion.Euler(0f, moveForward ? 0f : 180f, 0f);
     }
 
 }
