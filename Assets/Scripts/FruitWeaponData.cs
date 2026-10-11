@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 [CreateAssetMenu(menuName = "Weapons/Fruit")]
 public class FruitWeaponData : ScriptableObject
@@ -16,4 +17,5 @@ public class FruitWeaponData : ScriptableObject
     public AudioClip explosionSound;
     public float explosionRadius = 3f;
     public bool isRolling;
+    public int healAmount;
 }

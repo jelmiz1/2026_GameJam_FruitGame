@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: TestFruit
   m_EditorClassIdentifier: Assembly-CSharp::FruitWeaponData
   displayName: Jabillo
-  icon: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
+  icon: {fileID: 21300000, guid: 29b22e4b564fb514c9270b032cd4f0b3, type: 3}
   projectilePrefab: {fileID: 2137271562794776751, guid: 65ea1dd17db0eb14ea8e33531f467354, type: 3}
   damage: 1
   fireRate: 2
@@ -25,3 +25,4 @@ MonoBehaviour:
   explosionSound: {fileID: 0}
   explosionRadius: 3
   isRolling: 0
+  healAmount: 0
