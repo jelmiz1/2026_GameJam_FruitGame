@@ -416,6 +416,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerContainer Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 8893988505612202492, guid: df4ee13789d18f34fa87d45b9bd8f1f2, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.5
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 4808970024958238308, guid: 6eabd9c54dbd8cc4eb40b683924292b3, type: 3}
     m_RemovedGameObjects: []
