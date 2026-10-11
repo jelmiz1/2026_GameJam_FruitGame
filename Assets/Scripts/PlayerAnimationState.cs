@@ -30,7 +30,7 @@ public class PlayerAnimationState : MonoBehaviour
             animator.SetBool("Moving",true);
 
 
-        if((int)controller.velocity.y < -2)
+        if((int)controller.velocity.y < 0)
          animator.SetBool("Falling", true);
         else
             animator.SetBool("Falling", false);
