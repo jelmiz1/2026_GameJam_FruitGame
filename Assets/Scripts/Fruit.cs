@@ -8,42 +8,39 @@ public class Fruit : MonoBehaviour
 
     public void Init(FruitWeaponData data)
     {
-        Data = data;
-
-        if (data.isExplosion)
-            Invoke(nameof(TimedExplosion), data.lifetime);   // explode when time runs out
-        else
-            Destroy(gameObject, data.lifetime);              // normal fruit just disappears
+        Data = data; 
+        Destroy(gameObject, data.lifetime); 
     }
 
-    void TimedExplosion()
-    {
-        if (hasHit) return;
-        hasHit = true;
-
-        Explosion();
-        Destroy(gameObject);
-    }
 
     void OnTriggerEnter(Collider other)
+    {
+        HandleHit(other);
+    }
+
+    void OnCollisionEnter(Collision collision)
+    {
+        HandleHit(collision.collider);
+    }
+
+    void HandleHit(Collider other)
     {
         if (hasHit || Data == null) return;
         if (other.CompareTag("Player")) return;
         if (other.CompareTag("HP")) return;
-        if (other.GetComponentInParent<Fruit>()) return;     
+        if (other.GetComponentInParent<Fruit>()) return;
+
+        Enemy enemy = other.GetComponentInParent<Enemy>();
+
+        // Rolling fruit ignores the ground and walls, only enemies stop it
+        if (Data.isRolling && enemy == null) return;
 
         hasHit = true;
 
         if (Data.isExplosion)
-        {
             Explosion();
-        }
-        else
-        {
-            Enemy enemy = other.GetComponentInParent<Enemy>();
-            if (enemy != null)
-                enemy.TakeDamage(Data.damage);
-        }
+        else if (enemy != null)
+            enemy.TakeDamage(Data.damage);
 
         Destroy(gameObject);
     }
