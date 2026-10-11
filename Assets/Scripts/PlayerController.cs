@@ -124,7 +124,6 @@ public class PlayerController : MonoBehaviour
         if(hit.collider.CompareTag("Enemy"))
         {
             TakeDamage();
-            Debug.Log("Hit: " + hit.collider.name + " tag: " + hit.collider.tag);
         }
         
         
@@ -139,6 +138,14 @@ public class PlayerController : MonoBehaviour
                 UpdateHealthUi();
                 Destroy(other.gameObject);
             }
+        }
+        if (other.CompareTag("EndLevel"))
+        {
+            GameManager.Instance.LevelComplete();
+        }
+        if (other.CompareTag("EndGame"))
+        {
+            GameManager.Instance.GameComplete();
         }
     }
     private void OnTriggerStay(Collider other)
